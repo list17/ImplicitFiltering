@@ -16,10 +16,30 @@ If you find our code or paper useful, please consider citing
 }
 ```
 
-## Surface Reconstruction Demo
-<p align="left">
-  <img src="img/teaser.jpg"/>
-</p>
+## Overview
+<img src="./img/zerofiltering.jpg" class="center">
+         <p>
+          Overview of filtering the zero level set. (a) We assume all input points lying on
+          the surface and compute gradients as normals. (b) Calculating bidirectional projection
+          distances  $d1=|n_{p_j}^T({\bar{p}} - {p}_j)|$, $d2 = |n_{\bar{p}}^T(\bar{p} - p_j)|$ and the weights in Eq. (4). (c) By
+          minimizing Eq. (4), we can remove the noise on the zero level set. The gradient $∇f_θ$
+          in this figure defaults to be regularized.
+         </p>
+         <img src="./img/fieldfiltering.jpg" class="center">
+         <p>
+          Overview of sampling points. (a) Sampling query points near the surface. (b)
+Pulling the query point to the zero level set and input points to the level set where the
+query point is located. (c) Applying the filter on each level set. The gradient $∇f_θ$ in
+this figure defaults to be regularized.
+         </p>
+
+
+## Demo results
+### 2d Demo
+<img src="./img/2d.jpg">
+
+### 3d Demo
+<img src="./img/abcfamous.jpg">
 
 ## Installation:
 Our code is implemented in Python 3.8, PyTorch 1.11.0 and CUDA 11.3.
