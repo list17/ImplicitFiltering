@@ -1,0 +1,3 @@
+# ninja log v5
+1	14449	1703739952	/home/list21/QEM_NEURALPULL/BilateralPull/extensions/chamfer_dist/build/temp.linux-x86_64-cpython-37/chamfer_cuda.o	eaba44c6b3e8239a
+0	30281	1703739968	/home/list21/QEM_NEURALPULL/BilateralPull/extensions/chamfer_dist/build/temp.linux-x86_64-cpython-37/chamfer.o	982c57ebb4753c66

@@ -1,0 +1,29 @@
+ninja_required_version = 1.3
+cxx = c++
+nvcc = /home/list21/cuda-11.2/bin/nvcc
+
+cflags = -pthread -B /home/list21/anaconda3/envs/poco/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/home/list21/anaconda3/envs/poco/lib/python3.7/site-packages/torch/include -I/home/list21/anaconda3/envs/poco/lib/python3.7/site-packages/torch/include/torch/csrc/api/include -I/home/list21/anaconda3/envs/poco/lib/python3.7/site-packages/torch/include/TH -I/home/list21/anaconda3/envs/poco/lib/python3.7/site-packages/torch/include/THC -I/home/list21/cuda-11.2/include -I/home/list21/anaconda3/envs/poco/include/python3.7m -c
+post_cflags = -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1011"' -DTORCH_EXTENSION_NAME=chamfer -D_GLIBCXX_USE_CXX11_ABI=0 -std=c++14
+cuda_cflags = -I/home/list21/anaconda3/envs/poco/lib/python3.7/site-packages/torch/include -I/home/list21/anaconda3/envs/poco/lib/python3.7/site-packages/torch/include/torch/csrc/api/include -I/home/list21/anaconda3/envs/poco/lib/python3.7/site-packages/torch/include/TH -I/home/list21/anaconda3/envs/poco/lib/python3.7/site-packages/torch/include/THC -I/home/list21/cuda-11.2/include -I/home/list21/anaconda3/envs/poco/include/python3.7m -c
+cuda_post_cflags = -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1011"' -DTORCH_EXTENSION_NAME=chamfer -D_GLIBCXX_USE_CXX11_ABI=0 -gencode=arch=compute_86,code=compute_86 -gencode=arch=compute_86,code=sm_86 -std=c++14
+ldflags = 
+
+rule compile
+  command = $cxx -MMD -MF $out.d $cflags -c $in -o $out $post_cflags
+  depfile = $out.d
+  deps = gcc
+
+rule cuda_compile
+  depfile = $out.d
+  deps = gcc
+  command = $nvcc --generate-dependencies-with-compile --dependency-output $out.d $cuda_cflags -c $in -o $out $cuda_post_cflags
+
+
+
+build /home/list21/QEM_NEURALPULL/BilateralPull/extensions/chamfer_dist/build/temp.linux-x86_64-cpython-37/chamfer.o: cuda_compile /home/list21/QEM_NEURALPULL/BilateralPull/extensions/chamfer_dist/chamfer.cu
+build /home/list21/QEM_NEURALPULL/BilateralPull/extensions/chamfer_dist/build/temp.linux-x86_64-cpython-37/chamfer_cuda.o: compile /home/list21/QEM_NEURALPULL/BilateralPull/extensions/chamfer_dist/chamfer_cuda.cpp
+
+
+
+
+
