@@ -10,8 +10,8 @@ If you find our code or paper useful, please consider citing
 ```
 @inproceedings{ImplicitFilter,
   title={Implicit Filtering for Learning Neural Signed Distance Functions from 3D Point Clouds},
-  author={Shengtao Li and Ge Gao and Yudong Liu and Ming Gu and Yu-Shen Liu},
-  booktitle={European Conference on Computer Vision (ECCV)},
+  author={Li, Shengtao and Gao, Ge and Liu, Yudong and Gu, Ming and Liu, Yu-Shen},
+  booktitle={European Conference on Computer Vision},
   year={2024}
 }
 ```
