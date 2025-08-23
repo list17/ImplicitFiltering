@@ -1,8 +1,10 @@
 
-## Implicit Filtering for Learning Neural Signed Distance Functions from 3D Point Clouds
+## Implicit Filtering for Learning Neural Signed Distance Functions from 3D Point Clouds (ECCV/TPAMI)
+
+### [Project](https://list17.github.io/ImplicitFilter) | [paper (TPAMI)](https://yushen-liu.github.io/main/pdf/LiuYS_TPAMI25_IFiltering.pdf) | [paper (ECCV)](https://arxiv.org/abs/2407.13342) 
 
 This repository contains the official pytorch version code for the paper.
-[Implicit Filtering for Learning Neural Signed Distance Functions from 3D Point Clouds](https://arxiv.org/abs/2407.13342).
+[I-Filtering: Implicit Filtering for Learning Neural Distance Functions from 3D Point Clouds](https://yushen-liu.github.io/main/pdf/LiuYS_TPAMI25_IFiltering.pdf).
 
 You can find detailed usage instructions for training your own models or running our provided demo below.
 
